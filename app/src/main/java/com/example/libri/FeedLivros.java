@@ -78,6 +78,12 @@ public class FeedLivros extends AppCompatActivity {
         @NonNull
         @Override
         public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+            if (viewType == 0){
+
+                return new LivroAdapter.LivroViewHolder();
+
+            }
             return null;
         }
 
@@ -105,7 +111,7 @@ public class FeedLivros extends AppCompatActivity {
                 textLivroDescricao = itemView.findViewById(R.id.textLivroDescricao);
             }
 
-            /** MÉTODO DE SET DE DADOS NAS TEXTVIEWS **/
+            /**MÉTODO DE SET DE DADOS NAS TEXTVIEWS **/
             public void setLivroData(Livro livro){
 
                 textLivroTitulo.setText(livro.getTitulo());
