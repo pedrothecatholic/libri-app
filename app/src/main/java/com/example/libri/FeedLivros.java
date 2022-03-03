@@ -2,12 +2,21 @@ package com.example.libri;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import java.util.List;
+
+import model.Item;
+import model.Livro;
 
 public class FeedLivros extends AppCompatActivity {
 
@@ -53,4 +62,61 @@ public class FeedLivros extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+    /** ADAPTER DO RECYCLER-VIEW **/
+    class LivroAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+
+        //ATRIBUTO QUE RECEBER OS OBJETOS DE ITEMS
+        public List<Item> item;
+
+        //CONSTRUTOR DA CLASSE LivroAdapter
+        public LivroAdapter(List<Item> item){
+
+            this.item = item;
+
+        }
+
+        @NonNull
+        @Override
+        public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            return null;
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+
+        }
+
+        @Override
+        public int getItemCount() {
+            return 0;
+        }
+
+        /** VIEWHOLDER**/
+        class LivroViewHolder extends RecyclerView.ViewHolder {
+
+            private TextView textLivroTitulo, textLivroDescricao;
+            private int cod_livro;
+
+            /** MÉTODO CONSTRUTOR DA VIEWHOLDER **/
+            public LivroViewHolder(@NonNull View itemView) {
+                super(itemView);
+
+                textLivroTitulo = itemView.findViewById(R.id.textLivroTitulo);
+                textLivroDescricao = itemView.findViewById(R.id.textLivroDescricao);
+            }
+
+            /** MÉTODO DE SET DE DADOS NAS TEXTVIEWS **/
+            public void setLivroData(Livro livro){
+
+                textLivroTitulo.setText(livro.getTitulo());
+            }
+
+        }
+        /** FIM DA VIEWHOLDER **/
+
+
+    }//FIM DA ADAPTER
+
+
+
 }
