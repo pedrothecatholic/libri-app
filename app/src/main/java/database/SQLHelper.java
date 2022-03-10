@@ -23,7 +23,7 @@ public class SQLHelper extends SQLiteOpenHelper {
     private static SQLHelper INSTANCE;
 
     /*
-    * Método de vericar se a conexão está aberta
+    * Método de verificar se a conexão está aberta
     * */
     public static SQLHelper getInstance(Context context){
 
